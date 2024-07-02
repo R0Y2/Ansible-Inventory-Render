@@ -1,0 +1,19 @@
+---
+all:
+  children:
+    {%- for role,hosts in roles.items() %}
+      {{ role -}}:
+        hosts:
+          {% for host in hosts %}
+            {{- host.name }}:
+          {% endfor -%}
+    {% endfor %}
+
+  hosts:
+    {%- for _, hosts in roles.items() %}
+      {% for host in hosts -%}
+        {{ host.name }}:
+          ansible_host: {{ host.ip }}
+          ansible_port: {{ host.port }}
+      {% endfor -%}
+    {% endfor %}

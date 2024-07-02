@@ -1,4 +1,3 @@
-# pylint: disable=W1514,W0311
 #! /usr/bin/env python
 # -*- coding:utf-8 -*-
 
@@ -23,6 +22,7 @@ def _load_yaml(f: 'filename') -> dict:
   return safe_load(vstr)
 
 def _get_vars(f: 'filename') -> dict:
+  vdct = {}
   if f.endswith(('yml','yaml')):
     vdct = _load_yaml(f)
   elif f.endswith('json'):
