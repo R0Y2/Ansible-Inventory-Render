@@ -1,0 +1,21 @@
+roles:
+  master:
+    - name: rzm1
+      ip: 10.0.0.10
+      port: 321
+    - name: rzm2
+      ip: 10.0.0.11
+      port: 321
+    - name: rzm3
+      ip: 10.0.0.12
+      port: 321
+  worker:
+    - name: rzw1
+      ip: 10.0.0.100
+      port: 123
+    - name: rzw2
+      ip: 10.0.0.101
+      port: 123
+    - name: rzw3
+      ip: 10.0.0.102
+      port: 123
