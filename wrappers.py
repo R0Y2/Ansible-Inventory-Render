@@ -1,5 +1,3 @@
-""" Define the decorators """
-# pylint: disable=W0311,W0612,W0718
 #! /usr/bin/env python
 # -*- coding:utf-8 -*-
 
