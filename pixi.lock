@@ -10,7 +10,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/_openmp_mutex-4.5-2_gnu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/bzip2-1.0.8-h68df207_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/ca-certificates-2024.8.30-hcefe29a_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/jinja2-3.1.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/ld_impl_linux-aarch64-2.40-h9fc2d93_7.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/libexpat-2.6.3-h5ad3122_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/libffi-3.4.2-h3557bc0_5.tar.bz2
@@ -22,18 +21,23 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/libuuid-2.38.1-hb4cce97_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/libxcrypt-4.4.36-h31becfc_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/libzlib-1.3.1-h68df207_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/markupsafe-2.1.5-py311h5487e9b_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/ncurses-6.5-hcccb83c_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/openssl-3.3.2-h86ecc28_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/packaging-24.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/python-3.11.9-hddfb980_0_cpython.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/python_abi-3.11-5_cp311.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/pyyaml-6.0.1-py311hcd402e7_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/python-3.11.10-hde26a29_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/readline-8.2-h8fc344f_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/tk-8.6.13-h194ca79_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2024a-h8827d51_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/xz-5.2.6-h9cdd2b7_0.tar.bz2
-      - conda: https://conda.anaconda.org/conda-forge/linux-aarch64/yaml-0.2.5-hf897c2e_2.tar.bz2
+      - pypi: https://files.pythonhosted.org/packages/fe/0b/c28a50e7fbb7f6c6eb7bef4f023c5b408b0ff70934c2682be85e412b454d/ansible_core-2.16.2-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/2e/ea/70ce63780f096e16ce8588efe039d3c4f91deb1dc01e9c73a287939c79a6/cffi-1.17.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+      - pypi: https://files.pythonhosted.org/packages/64/f3/b7946c3887cf7436f002f4cbb1e6aec77b8d299b86be48eeadfefb937c4b/cryptography-43.0.1-cp39-abi3-manylinux_2_28_aarch64.whl
+      - pypi: https://files.pythonhosted.org/packages/31/80/3a54838c3fb461f6fec263ebf3a3a41771bd05190238de3486aae8540c36/jinja2-3.1.4-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/1c/cf/35fe557e53709e93feb65575c93927942087e9b97213eabc3fe9d5b25a55/MarkupSafe-2.1.5-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+      - pypi: https://files.pythonhosted.org/packages/13/a3/a812df4e2dd5696d1f351d58b8fe16a405b234ad2886a0dab9183fb78109/pycparser-2.22-py3-none-any.whl
+      - pypi: git+https://github.com/R0Y2/PyUtils.git@f610c4112f43ba2a04a6c46b14c119e83841d557
+      - pypi: https://files.pythonhosted.org/packages/5e/94/7d5ee059dfb92ca9e62f4057dcdec9ac08a9e42679644854dc01177f8145/PyYAML-6.0.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+      - pypi: https://files.pythonhosted.org/packages/d2/fc/e9ccf0521607bcd244aa0b3fbd574f71b65e9ce6a112c83af988bbbe2e23/resolvelib-1.0.1-py2.py3-none-any.whl
       - pypi: .
 packages:
 - kind: conda
@@ -55,10 +59,29 @@ packages:
   size: 23712
   timestamp: 1650670790230
 - kind: pypi
+  name: ansible-core
+  version: 2.16.2
+  url: https://files.pythonhosted.org/packages/fe/0b/c28a50e7fbb7f6c6eb7bef4f023c5b408b0ff70934c2682be85e412b454d/ansible_core-2.16.2-py3-none-any.whl
+  sha256: 494f002edcb17b02baef661ff27b8c9c750a534bdc0537ab29dc02e680817d92
+  requires_dist:
+  - jinja2>=3.0.0
+  - pyyaml>=5.1
+  - cryptography
+  - packaging
+  - resolvelib<1.1.0,>=0.5.3
+  requires_python: '>=3.10'
+- kind: pypi
   name: ansible-inventory-render
   version: 0.1.0
   path: .
-  sha256: 5be91a5d9c4c5294b9498bc6ae6ff6c6ec474fb16a32b1498ca104cc0e6fd5ac
+  sha256: 6d5ccf596b1da20c3309f0fde09d8c0c062ca51f614ed5f0d2df35144206121d
+  requires_dist:
+  - pyutils @ git+https://github.com/R0Y2/PyUtils.git@f610c4112f43ba2a04a6c46b14c119e83841d557
+  - ansible-core==2.16.2
+  - jinja2==3.1.4
+  - markupsafe==2.1.5
+  - packaging==24.0
+  - pyyaml==6.0.1
   requires_python: '>=3.11'
   editable: true
 - kind: conda
@@ -89,24 +112,51 @@ packages:
   purls: []
   size: 159106
   timestamp: 1725020043153
-- kind: conda
+- kind: pypi
+  name: cffi
+  version: 1.17.1
+  url: https://files.pythonhosted.org/packages/2e/ea/70ce63780f096e16ce8588efe039d3c4f91deb1dc01e9c73a287939c79a6/cffi-1.17.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+  sha256: a1ed2dd2972641495a3ec98445e09766f077aee98a1c896dcb4ad0d303628e41
+  requires_dist:
+  - pycparser
+  requires_python: '>=3.8'
+- kind: pypi
+  name: cryptography
+  version: 43.0.1
+  url: https://files.pythonhosted.org/packages/64/f3/b7946c3887cf7436f002f4cbb1e6aec77b8d299b86be48eeadfefb937c4b/cryptography-43.0.1-cp39-abi3-manylinux_2_28_aarch64.whl
+  sha256: d03a475165f3134f773d1388aeb19c2d25ba88b6a9733c5c590b9ff7bbfa2e0c
+  requires_dist:
+  - cffi>=1.12 ; platform_python_implementation != 'PyPy'
+  - bcrypt>=3.1.5 ; extra == 'ssh'
+  - nox ; extra == 'nox'
+  - cryptography-vectors==43.0.1 ; extra == 'test'
+  - pytest>=6.2.0 ; extra == 'test'
+  - pytest-benchmark ; extra == 'test'
+  - pytest-cov ; extra == 'test'
+  - pytest-xdist ; extra == 'test'
+  - pretend ; extra == 'test'
+  - certifi ; extra == 'test'
+  - pytest-randomly ; extra == 'test-randomorder'
+  - sphinx>=5.3.0 ; extra == 'docs'
+  - sphinx-rtd-theme>=1.1.1 ; extra == 'docs'
+  - pyenchant>=1.6.11 ; extra == 'docstest'
+  - readme-renderer ; extra == 'docstest'
+  - sphinxcontrib-spelling>=4.0.1 ; extra == 'docstest'
+  - build ; extra == 'sdist'
+  - ruff ; extra == 'pep8test'
+  - mypy ; extra == 'pep8test'
+  - check-sdist ; extra == 'pep8test'
+  - click ; extra == 'pep8test'
+  requires_python: '>=3.7'
+- kind: pypi
   name: jinja2
   version: 3.1.4
-  build: pyhd8ed1ab_0
-  subdir: noarch
-  noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/jinja2-3.1.4-pyhd8ed1ab_0.conda
-  sha256: 27380d870d42d00350d2d52598cddaf02f9505fb24be09488da0c9b8d1428f2d
-  md5: 7b86ecb7d3557821c649b3c31e3eb9f2
-  depends:
-  - markupsafe >=2.0
-  - python >=3.7
-  license: BSD-3-Clause
-  license_family: BSD
-  purls:
-  - pkg:pypi/jinja2?source=hash-mapping
-  size: 111565
-  timestamp: 1715127275924
+  url: https://files.pythonhosted.org/packages/31/80/3a54838c3fb461f6fec263ebf3a3a41771bd05190238de3486aae8540c36/jinja2-3.1.4-py3-none-any.whl
+  sha256: bc5dd2abb727a5319567b7a813e6a2e7318c39f4f487cfe6c89c6f9c7d25197d
+  requires_dist:
+  - markupsafe>=2.0
+  - babel>=2.7 ; extra == 'i18n'
+  requires_python: '>=3.7'
 - kind: conda
   name: ld_impl_linux-aarch64
   version: '2.40'
@@ -283,27 +333,12 @@ packages:
   purls: []
   size: 67199
   timestamp: 1716874136348
-- kind: conda
+- kind: pypi
   name: markupsafe
   version: 2.1.5
-  build: py311h5487e9b_1
-  build_number: 1
-  subdir: linux-aarch64
-  url: https://conda.anaconda.org/conda-forge/linux-aarch64/markupsafe-2.1.5-py311h5487e9b_1.conda
-  sha256: da897a0f34728df1b9750e431764b54b1636ac05433f6bdfd7c6761918586a3f
-  md5: eb2bc20970ca3d545ab5c823662cae80
-  depends:
-  - libgcc >=13
-  - python >=3.11,<3.12.0a0
-  - python_abi 3.11.* *_cp311
-  constrains:
-  - jinja2 >=3.0.0
-  license: BSD-3-Clause
-  license_family: BSD
-  purls:
-  - pkg:pypi/markupsafe?source=hash-mapping
-  size: 27694
-  timestamp: 1724960873494
+  url: https://files.pythonhosted.org/packages/1c/cf/35fe557e53709e93feb65575c93927942087e9b97213eabc3fe9d5b25a55/MarkupSafe-2.1.5-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+  sha256: 6ec585f69cec0aa07d945b20805be741395e28ac1627333b1c5b0105962ffced
+  requires_python: '>=3.7'
 - kind: conda
   name: ncurses
   version: '6.5'
@@ -352,27 +387,33 @@ packages:
   - pkg:pypi/packaging?source=hash-mapping
   size: 49832
   timestamp: 1710076089469
+- kind: pypi
+  name: pycparser
+  version: '2.22'
+  url: https://files.pythonhosted.org/packages/13/a3/a812df4e2dd5696d1f351d58b8fe16a405b234ad2886a0dab9183fb78109/pycparser-2.22-py3-none-any.whl
+  sha256: c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc
+  requires_python: '>=3.8'
 - kind: conda
   name: python
-  version: 3.11.9
-  build: hddfb980_0_cpython
+  version: 3.11.10
+  build: hde26a29_0_cpython
   subdir: linux-aarch64
-  url: https://conda.anaconda.org/conda-forge/linux-aarch64/python-3.11.9-hddfb980_0_cpython.conda
-  sha256: 522ae1bc43929198e72643046e82362f80f2d70f4dbe8ac810d9ce2ba983fb2f
-  md5: 4846e936e27dd709ad78f91fa33a48e8
+  url: https://conda.anaconda.org/conda-forge/linux-aarch64/python-3.11.10-hde26a29_0_cpython.conda
+  sha256: fd57231f287e0dc940a32569e5651ab6b9bf3a867e5f1a269782f02f4a90df84
+  md5: 5bf34a679e38ad33e3e3414b70a78860
   depends:
   - bzip2 >=1.0.8,<2.0a0
   - ld_impl_linux-aarch64 >=2.36.1
-  - libexpat >=2.6.2,<3.0a0
+  - libexpat >=2.6.3,<3.0a0
   - libffi >=3.4,<4.0a0
-  - libgcc-ng >=12
+  - libgcc >=13
   - libnsl >=2.0.1,<2.1.0a0
-  - libsqlite >=3.45.3,<4.0a0
+  - libsqlite >=3.46.1,<4.0a0
   - libuuid >=2.38.1,<3.0a0
   - libxcrypt >=4.4.36
-  - libzlib >=1.2.13,<2.0.0a0
-  - ncurses >=6.4.20240210,<7.0a0
-  - openssl >=3.2.1,<4.0a0
+  - libzlib >=1.3.1,<2.0a0
+  - ncurses >=6.5,<7.0a0
+  - openssl >=3.3.2,<4.0a0
   - readline >=8.2,<9.0a0
   - tk >=8.6.13,<8.7.0a0
   - tzdata
@@ -381,45 +422,19 @@ packages:
   - python_abi 3.11.* *_cp311
   license: Python-2.0
   purls: []
-  size: 15304491
-  timestamp: 1713551266002
-- kind: conda
-  name: python_abi
-  version: '3.11'
-  build: 5_cp311
-  build_number: 5
-  subdir: linux-aarch64
-  url: https://conda.anaconda.org/conda-forge/linux-aarch64/python_abi-3.11-5_cp311.conda
-  sha256: 76974c2732919ace87b5f3a634eac93fed6900d557fcae0575787ec0a33c370e
-  md5: c2078141f21872cc34d9305123ba08f2
-  constrains:
-  - python 3.11.* *_cpython
-  license: BSD-3-Clause
-  license_family: BSD
-  purls: []
-  size: 6300
-  timestamp: 1723823316891
-- kind: conda
+  size: 15338097
+  timestamp: 1725965685818
+- kind: pypi
+  name: pyutils
+  version: 0.1.0
+  url: git+https://github.com/R0Y2/PyUtils.git@f610c4112f43ba2a04a6c46b14c119e83841d557
+  requires_python: '>=3.11'
+- kind: pypi
   name: pyyaml
   version: 6.0.1
-  build: py311hcd402e7_1
-  build_number: 1
-  subdir: linux-aarch64
-  url: https://conda.anaconda.org/conda-forge/linux-aarch64/pyyaml-6.0.1-py311hcd402e7_1.conda
-  sha256: bee3c9c09f9d099a4e5c49a274160c25f5a5b7d0e1faf16a3348b2704351e620
-  md5: 78775409be46d19acb2b453f1f2c4757
-  depends:
-  - libgcc-ng >=12
-  - python >=3.11,<3.12.0a0
-  - python >=3.11,<3.12.0a0 *_cpython
-  - python_abi 3.11.* *_cp311
-  - yaml >=0.2.5,<0.3.0a0
-  license: MIT
-  license_family: MIT
-  purls:
-  - pkg:pypi/pyyaml?source=hash-mapping
-  size: 193459
-  timestamp: 1695373744445
+  url: https://files.pythonhosted.org/packages/5e/94/7d5ee059dfb92ca9e62f4057dcdec9ac08a9e42679644854dc01177f8145/PyYAML-6.0.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+  sha256: 42f8152b8dbc4fe7d96729ec2b99c7097d656dc1213a3229ca5383f973a5ed6d
+  requires_python: '>=3.6'
 - kind: conda
   name: readline
   version: '8.2'
@@ -437,6 +452,27 @@ packages:
   purls: []
   size: 294092
   timestamp: 1679532238805
+- kind: pypi
+  name: resolvelib
+  version: 1.0.1
+  url: https://files.pythonhosted.org/packages/d2/fc/e9ccf0521607bcd244aa0b3fbd574f71b65e9ce6a112c83af988bbbe2e23/resolvelib-1.0.1-py2.py3-none-any.whl
+  sha256: d2da45d1a8dfee81bdd591647783e340ef3bcb104b54c383f70d422ef5cc7dbf
+  requires_dist:
+  - html5lib ; extra == 'examples'
+  - packaging ; extra == 'examples'
+  - pygraphviz ; extra == 'examples'
+  - requests ; extra == 'examples'
+  - black ; extra == 'lint'
+  - flake8 ; extra == 'lint'
+  - mypy ; extra == 'lint'
+  - isort ; extra == 'lint'
+  - types-requests ; extra == 'lint'
+  - build ; extra == 'release'
+  - towncrier ; extra == 'release'
+  - twine ; extra == 'release'
+  - commentjson ; extra == 'test'
+  - packaging ; extra == 'test'
+  - pytest ; extra == 'test'
 - kind: conda
   name: tk
   version: 8.6.13
@@ -481,19 +517,3 @@ packages:
   purls: []
   size: 440555
   timestamp: 1660348056328
-- kind: conda
-  name: yaml
-  version: 0.2.5
-  build: hf897c2e_2
-  build_number: 2
-  subdir: linux-aarch64
-  url: https://conda.anaconda.org/conda-forge/linux-aarch64/yaml-0.2.5-hf897c2e_2.tar.bz2
-  sha256: 8bc601d6dbe249eba44b3c456765265cd8f42ef1e778f8df9b0c9c88b8558d7e
-  md5: b853307650cb226731f653aa623936a4
-  depends:
-  - libgcc-ng >=9.4.0
-  license: MIT
-  license_family: MIT
-  purls: []
-  size: 92927
-  timestamp: 1641347626613

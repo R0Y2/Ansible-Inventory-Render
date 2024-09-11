@@ -1,7 +1,7 @@
 [project]
 authors = [{name = "rz", email = "royzou.rz@gmail.com"}]
 dependencies = [
-  "PyUtils @ git+https://github.com/R0Y2/PyUtils.git@main",
+  "PyUtils @ git+https://github.com/R0Y2/PyUtils.git@f610c4112f43ba2a04a6c46b14c119e83841d557",
   "ansible-core==2.16.2",
   "Jinja2==3.1.4",
   "MarkupSafe==2.1.5",
