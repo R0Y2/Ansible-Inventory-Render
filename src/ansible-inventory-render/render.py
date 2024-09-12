@@ -44,7 +44,7 @@ def render(vf: 'vars file', tf: 'template file') -> str:
   return res
 
 
-@try_catch(print)
+@try_catch(lambda x: print(repr(x)))
 @init_args(
   args.description,
   args.options
