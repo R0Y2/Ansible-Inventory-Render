@@ -2,13 +2,13 @@
 # -*- coding:utf-8 -*-
 
 import os
+import sys
 import json
 import args
 from yaml import safe_load
 from jinja2 import Environment, FileSystemLoader
-from wrappers import init_args, try_catch
+from pyutils.wrappers import try_catch, init_args
 
-# Run from the project's root path
 CWD = os.getcwd()
 
 def _load_json(f: 'filename') -> dict:
@@ -29,6 +29,7 @@ def _get_vars(f: 'filename') -> dict:
     vdct = _load_json(f)
   return vdct
 
+
 def render(vf: 'vars file', tf: 'template file') -> str:
   """Render the Ansible inventory from the template and yaml/json vars
   Args:
@@ -43,7 +44,7 @@ def render(vf: 'vars file', tf: 'template file') -> str:
   return res
 
 
-@try_catch
+@try_catch(print)
 @init_args(
   args.description,
   args.options

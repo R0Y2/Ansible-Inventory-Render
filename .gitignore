@@ -1,2 +1,6 @@
 Makefile
 .inventory*
+**/__pycache__
+# pixi environments
+.pixi
+*.egg-info
