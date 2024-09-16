@@ -26,6 +26,7 @@ packages = ["src/ansible-inventory-render"]
 [tool.pixi.project]
 channels = ["conda-forge"]
 platforms = [
+  "linux-aarch64",
   "linux-64",
   "osx-arm64",
   "osx-64",
