@@ -30,7 +30,15 @@ jobs:
           pylint --recursive=y -d C,W ./src
       - name: Verify with example data and ansible-inventory
         run: |
-          cd src/ansible-inventory-render
-          python render.py -v example/vars.yml -t example/inventory.j2
+          python src/ansible-inventory-render/render.py -v examples/vars.yml -t examples/inventory.j2
           ansible-inventory -i inventory.yml --graph | tee inventory-graph
           ((exit 1) || [[ -z $(grep "Failed to parse" inventory-graph) ]] && exit 0)
+
+      - name: Run Snyk to check for vulnerabilities
+        run: |
+          curl --compressed https://downloads.snyk.io/cli/stable/snyk-linux -o snyk
+          chmod +x ./snyk
+          mv ./snyk /usr/local/bin/
+          snyk code test --org=rz
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
